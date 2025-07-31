@@ -13,7 +13,9 @@ Alejandro Mercado
 ebpf_project/
 ├── ebpf/
 │   └── click_counter.bpf.c   # eBPF program source code
-├── scripts/                  # (Optional) Python or shell scripts to load/run the eBPF program
+├── collector/                
+│   └── collector.py          # Python or shell scripts to load/run the eBPF program
+│   └── static/               # Front end files  
 ├── README.md                 # Project documentation
 ```
 
