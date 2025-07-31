@@ -1,4 +1,6 @@
 # ebpf_project
+Make your observability system from scratch with eBPF and Ubuntu
+...and C, Python, Flask, JS, and a bunch of other tools and trechnologies.
 
 ## Description
 This project demonstrates a simple eBPF program that counts the number of times the `execve` syscall is executed on your system. It uses a BPF array map to store the counter and prints the command name to the kernel trace pipe for observability.
@@ -19,7 +21,7 @@ ebpf_project/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/ebpf_project.git
+   git clone https://github.com/mercadoalex/ebpf_project.git
    cd ebpf_project
    ```
 
