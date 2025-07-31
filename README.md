@@ -42,6 +42,9 @@ ebpf_project/
      b.trace_print()
      ```
 
+**Note:** For demo I used Ubuntu on a VM with Multipass, both from Canonical.
+
+
 ## Blog
 
 For a detailed walkthrough, see the related blog post on [Medium](https://alexmarket.medium.com/).
