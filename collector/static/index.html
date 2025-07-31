@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>eBPF Click Counter</title>
+</head>
+<body>
+    <!-- Clickable link -->
+    <a href="#" id="click-link">Click me!</a>
+    <!-- Display the number of clicks -->
+    <p>Clicks: <span id="click-count">0</span></p>
+    <script>
+        // Fetch and update the click count from the server
+        async function updateCount() {
+            const res = await fetch('/clicks');
+            const data = await res.json();
+            document.getElementById('click-count').textContent = data.clicks;
+        }
+
+        // Register a click and update the count
+        document.getElementById('click-link').addEventListener('click', async (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            await fetch('/clicks', { method: 'POST' }); // Register the click
+            updateCount(); // Refresh the displayed count
+        });
+
+        // Initial count update on page load
+        updateCount();
+    </script>
+</body>
+</html>
