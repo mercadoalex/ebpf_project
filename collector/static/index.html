@@ -8,6 +8,8 @@
     <a href="#" id="click-link">Click me!</a>
     <!-- Display the number of clicks -->
     <p>Clicks: <span id="click-count">0</span></p>
+    <!-- New button for generating activity -->
+    <button id="activity-btn">Generate activity</button>
     <script>
         // Fetch and update the click count from the server
         async function updateCount() {
@@ -21,6 +23,12 @@
             e.preventDefault(); // Prevent default link behavior
             await fetch('/clicks', { method: 'POST' }); // Register the click
             updateCount(); // Refresh the displayed count
+        });
+
+        // Handle "Generate activity" button click
+        document.getElementById('activity-btn').addEventListener('click', async () => {
+            await fetch('/generate-activity', { method: 'POST' });
+            // Optionally, you can show a message or update UI here
         });
 
         // Initial count update on page load

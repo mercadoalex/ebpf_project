@@ -42,7 +42,20 @@ def register_click():
     click_count_map[key] = ctypes.c_ulonglong(value)  # Update the map with the new value (as ctypes)
     return jsonify({"clicks": value})       # Return the new count as JSON
 
+@app.route("/generate-activity", methods=["POST"])
+def generate_activity():
+    """
+    HTTP POST endpoint to generate activity by raising and catching 40 exceptions.
+    Each exception is logged for observability.
+    """
+    for i in range(40):
+        try:
+            raise ValueError(f"Simulated exception #{i+1}")
+        except Exception as e:
+            app.logger.warning(f"Caught exception {i+1}: {e}")
+    return jsonify({"status": "40 exceptions raised and caught"})
+
 if __name__ == "__main__":
     # Start the Flask web server on all interfaces, port 8080
-    # This will serve the /clicks API endpoints for GET and POST requests
+    # This will serve the /clicks and /generate-activity API endpoints
     app.run(host="0.0.0.0", port=8080)
